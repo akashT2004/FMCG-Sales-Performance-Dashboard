@@ -2,296 +2,614 @@
 
 ## Project Overview
 
-This project focuses on analyzing FMCG (Fast-Moving Consumer Goods) sales data to understand revenue performance, product category trends, sales channels, brand performance, regional performance, and sales activity over time.
+This project presents an interactive **FMCG (Fast-Moving Consumer Goods)**
+**Sales Performance Dashboard** built in Google Sheets and Looker Studio
+(Data Studio).
 
-The dashboard helps business managers, sales teams, and decision-makers monitor key sales KPIs, identify high-performing products and categories, compare sales channels, and understand revenue trends for better business planning and decision-making.
+The report is organized into **two connected dashboard pages**:
 
-The analysis was performed using **Google Sheets and Looker Studio**, with an interactive dashboard containing KPIs, charts, and filters.
+1. **FMCG Overview** --- an executive-level view of sales performance.
+2. **Advanced Sales Analysis** --- a deeper operational and promotional
+   analysis.
 
-## Problem Statement
-
-FMCG businesses generate large volumes of transactional sales data across different products, brands, categories, regions, and sales channels. Analyzing this data effectively is important for understanding sales performance and identifying opportunities for business growth.
-
-The main objectives of this project are:
-
-* Analyze overall FMCG sales and revenue performance.
-* Track revenue and unit sales trends over time.
-* Compare revenue across different product categories.
-* Analyze sales performance across different channels.
-* Identify high-performing brands.
-* Analyze sales performance across different regions.
-* Monitor stock availability, deliveries, and promotional activity.
-* Provide an interactive dashboard for business performance monitoring.
-* Support data-driven sales and operational decision-making.
-
-## Tools and Technologies
-
-* **Google Sheets**
-* **Looker Studio**
-* **Data Cleaning and Transformation**
-* **Calculated Fields**
-* **KPI Scorecards**
-* **Interactive Filters**
-* **Time-Series Analysis**
-* **Data Visualization**
-* **Dashboard Design**
+The dashboard is designed to help business managers, sales teams, and
+decision-makers monitor KPIs, identify high-performing categories and
+brands, understand revenue trends, evaluate promotions and delivery
+performance, and investigate stock health.
 
 ## Live Dashboard
 
-**Looker Studio Dashboard:**
+**Looker Studio / Data Studio Dashboard:**
+
 https://datastudio.google.com/reporting/9a0698d0-f429-4a51-90d5-ed64cb2afd53
 
-## Dataset Information
+The two pages are connected through navigation buttons:
 
-The dataset contains FMCG transaction-level sales and operational data covering the period **2022–2024**.
+- **Page 1 → Page 2:** `View Advanced Analysis →`
+- **Page 2 → Page 1:** `← Back to Overview`
 
-The dataset includes information related to products, brands, categories, sales channels, regions, pricing, promotions, deliveries, inventory, units sold, and revenue.
+---
 
-| Column            | Description                                           |
-| ----------------- | ----------------------------------------------------- |
-| `Transaction ID`  | Unique identifier for each transaction                |
-| `date`            | Date on which the transaction occurred                |
-| `sku`             | Unique product/SKU identifier                         |
-| `brand`           | Brand associated with the product                     |
-| `segment`         | Product segment                                       |
-| `category`        | FMCG product category                                 |
-| `channel`         | Sales channel such as Retail, E-commerce, or Discount |
-| `region`          | Geographic sales region                               |
-| `pack_type`       | Packaging type of the product                         |
-| `price_unit`      | Selling price per unit                                |
-| `promotion_flag`  | Indicates whether a promotion was applied             |
-| `delivery_days`   | Number of days required for delivery                  |
-| `stock_available` | Quantity of stock available                           |
-| `delivered_qty`   | Quantity delivered                                    |
-| `units_sold`      | Number of units sold                                  |
-| `Revenue`         | Revenue generated from the transaction                |
+# Page 1 --- FMCG Overview
 
-## Dataset Period
+## Purpose
 
-**Time Period:** 2022–2024
+The first page provides a high-level overview of FMCG sales performance
+across the 2022--2024 period.
 
-**Data Type:** Transaction-level FMCG sales data
+It is intended to answer questions such as:
 
-**Business Domain:** Fast-Moving Consumer Goods (FMCG)
+- How much revenue was generated?
+- How many units were sold?
+- How many transactions occurred?
+- What is the average unit price?
+- How is revenue changing over time?
+- Which categories, channels, and brands contribute most to revenue?
 
-The dataset covers multiple product categories including:
+## Page 1 Filters
 
-* Yogurt
-* Milk
-* ReadyMeal
-* SnackBar
-* Juice
+The overview page contains interactive filters for:
 
-It also contains multiple brands, regions, sales channels, packaging types, and promotional transactions.
+- **Category**
+- **Region**
+- **Channel**
 
-## Data Preparation
+These controls allow users to dynamically focus the dashboard on a
+particular product category, geographic region, or sales channel.
 
-### Step 1: Data Extraction
-
-* Connected the FMCG dataset to **Google Sheets**.
-* Reviewed the available transaction-level sales and operational fields.
-* Used the Google Sheets dataset as the data source for Looker Studio.
-
-### Step 2: Data Cleaning and Preparation
-
-* Verified column names and data structure.
-* Ensured the date field was suitable for time-series analysis.
-* Verified numerical fields such as price, stock, delivered quantity, units sold, and revenue.
-* Checked categorical fields such as category, brand, channel, and region.
-* Prepared the dataset for visualization and dashboard reporting.
-
-### Step 3: Looker Studio Integration
-
-* Connected the Google Sheets dataset to **Looker Studio**.
-* Configured dimensions and metrics according to the analysis requirements.
-* Created calculated metrics and aggregations where required.
-* Added interactive filters and dashboard controls.
-* Designed the final sales performance dashboard.
-
-## Key Performance Indicators
+## Page 1 KPIs
 
 ### 1. Total Revenue
 
-Displays the total revenue generated across all FMCG transactions.
+Displays total revenue generated across the FMCG transactions.
 
-**Dashboard Value:** £19.95M
+**Dashboard value:** £19.95M
 
-### 2. Total Units Sold
+### 2. Total Unit Sold
 
-Shows the total number of units sold across all products and transactions.
+Displays the total number of units sold.
 
-**Dashboard Value:** 3.8M
+**Dashboard value:** 3.8M
 
 ### 3. Total Transactions
 
-Displays the total number of transactions recorded in the dataset.
+Displays the number of transactions recorded.
 
-**Dashboard Value:** 190.8K
+**Dashboard value:** 190.8K
 
 ### 4. Average Unit Price
 
-Shows the average selling price per unit across the dataset.
+Displays the average selling price per unit.
 
-**Dashboard Value:** 5.3
+**Dashboard value:** 5.3
 
-These KPIs provide a quick overview of the overall sales performance before analyzing individual categories, brands, channels, and time periods.
-
-## Dashboard Visualizations
+## Page 1 Visualizations
 
 ### 1. Revenue Over Time
 
-**Chart Type:** Time-Series / Line Chart
+**Chart type:** Time-Series / Line Chart
 
-**Objective:**
-Analyze how revenue changes over the 2022–2024 period.
+Shows revenue movement across the 2022--2024 period and allows users to
+observe changes and fluctuations over time.
 
-**Purpose:**
-Helps identify sales growth, declines, seasonal patterns, and changes in category performance over time.
+The visualization compares major FMCG categories including:
 
-The visualization compares revenue trends across major FMCG categories such as Yogurt, Milk, ReadyMeal, SnackBar, and Juice.
+- Yogurt
+- Milk
+- ReadyMeal
+- SnackBar
+- Juice
 
 ### 2. Revenue by Category
 
-**Chart Type:** Bar Chart
+**Chart type:** Bar Chart
 
-**Objective:**
-Compare total revenue generated by different FMCG categories.
-
-**Purpose:**
-Helps identify the highest and lowest revenue-generating product categories.
-
-The dashboard allows users to compare categories such as Yogurt, Milk, ReadyMeal, SnackBar, and Juice.
+Compares total revenue generated by the five main FMCG categories.
 
 ### 3. Revenue by Channel
 
-**Chart Type:** Donut Chart
+**Chart type:** Donut Chart
 
-**Objective:**
-Analyze how revenue is distributed across different sales channels.
+Shows the revenue distribution across:
 
-**Purpose:**
-Helps businesses understand the contribution of different channels to overall sales performance.
-
-The dashboard compares channels including:
-
-* Retail
-* E-commerce
-* Discount
+- Retail
+- E-commerce
+- Discount
 
 ### 4. Revenue by Brand
 
-**Chart Type:** Bar Chart
+**Chart type:** Bar Chart
 
-**Objective:**
-Compare revenue generated by different brands.
+Compares revenue contribution across individual brands and helps
+identify stronger and weaker brand performance.
 
-**Purpose:**
-Helps identify high-performing brands and understand their contribution to overall FMCG revenue.
+### 5. Navigation to Advanced Analysis
 
-The visualization allows management to compare individual brands and identify brands that may require additional attention or investment.
+A **View Advanced Analysis →** button is provided at the bottom of Page
+1.
 
-### 5. Revenue Trend by Product Category
+Selecting it navigates directly to Page 2.
 
-**Objective:**
-Compare the performance of different FMCG categories over time.
+---
 
-**Purpose:**
-Helps identify categories with consistent growth, declining performance, or significant fluctuations during the analysis period.
+# Page 2 --- Advanced Sales Analysis
 
-## Interactive Dashboard Features
+## Purpose
 
-The dashboard includes interactive filters for:
+The second page provides deeper analysis of:
 
-* **Category**
-* **Region**
-* **Channel**
+- Promotional activity
+- Promotion vs non-promotion performance
+- Delivery performance
+- Revenue trends by year
+- Promotion lift by category
+- Stock health by category and status
 
-These filters allow users to dynamically analyze sales performance for specific product categories, geographic regions, and sales channels.
+This page is intended for more detailed sales and operational
+investigation.
 
-For example, users can select a particular region and channel to analyze how revenue and units sold change across the selected segment.
+## Page 2 Filters
 
-## Business Insights
+Page 2 contains four interactive filter controls:
 
-### Insight 1
+### 1. Year
 
-**Yogurt** is the strongest revenue-generating category in the dashboard, contributing significantly more revenue compared with the other categories.
+**Control field:** Year calculated field
 
-### Insight 2
+Options:
 
-Revenue performance changes over time, with noticeable fluctuations across the 2022–2024 period. The time-series analysis helps identify periods of stronger and weaker sales performance.
+- 2022
+- 2023
+- 2024
 
-### Insight 3
+### 2. Promotion Status
 
-Revenue is distributed across **Retail, E-commerce, and Discount** channels. Comparing these channels helps businesses understand the contribution of each sales channel.
+**Control field:** Promotion Label calculated field
 
-### Insight 4
+Options:
 
-Brand-level analysis shows differences in revenue contribution, allowing businesses to identify high-performing brands and evaluate their overall portfolio performance.
+- Yes - Promo Active
+- No - Standard Price
 
-### Insight 5
+### 3. Delivery Speed
 
-Regional filtering allows management to investigate geographic differences in sales performance and identify regions with stronger or weaker revenue generation.
+**Control field:** Delivery Performance calculated field
 
-### Insight 6
+The filter provides the delivery-performance tiers used in the
+dashboard.
 
-The dataset combines sales information with operational variables such as **stock availability, delivered quantity, delivery days, and promotion status**, providing opportunities for deeper analysis of the relationship between sales and operations.
+### 4. Stock Health
 
-## Project Challenges
+**Control field:** Stock Status calculated field
 
-### 1. Transaction-Level Data
+Options:
 
-The dataset contains a large number of individual transactions. Aggregating this data correctly was important for calculating meaningful KPIs and visualizations.
+- Healthy stock
+- Out of stock
+- Low stock
+- Critical stock
 
-### 2. Data Preparation
+These filters allow users to narrow the advanced analysis without
+creating separate reports for each segment.
 
-Different fields such as dates, numerical measures, and categorical dimensions needed to be correctly configured before building the Looker Studio dashboard.
+## Page 2 KPIs
 
-### 3. KPI Calculation
+### 1. Promo Revenue
 
-Creating accurate aggregations for total revenue, total units sold, transaction count, and average unit price was important to ensure that the dashboard represented the underlying data correctly.
+Shows revenue associated with promotional transactions.
 
-### 4. Time-Series Analysis
+**Dashboard value:** £5.10M
 
-Displaying revenue trends across multiple years required correctly configuring the date dimension and aggregation levels.
+### 2. Average Revenue Per Unit --- Promo
 
-### 5. Dashboard Design
+Shows average revenue per unit for promotional transactions.
 
-The dashboard needed to present multiple KPIs and visualizations while maintaining a clean, readable, and business-oriented layout.
+**Dashboard value:** £5.27
 
-### 6. Interactive Filtering
+### 3. Average Revenue Per Unit --- Non Promo
 
-Filters had to be configured so users could analyze the dashboard dynamically by category, region, and sales channel without creating separate dashboards for each segment.
+Shows average revenue per unit for non-promotional transactions.
 
-## Project Outcome
+**Dashboard value:** £5.25
 
-The FMCG Sales Performance Dashboard provides an interactive solution for monitoring and analyzing sales performance.
+---
 
-The dashboard allows users to:
+# Page 2 Visualizations
 
-* Monitor total revenue and units sold.
-* Track transaction volume.
-* Analyze average unit price.
-* Monitor revenue trends over time.
-* Compare revenue across product categories.
-* Analyze channel-wise revenue performance.
-* Compare brand-level revenue.
-* Analyze regional sales performance using interactive filters.
-* Explore sales data dynamically using Looker Studio controls.
-* Support data-driven FMCG business decisions.
+## 1. Promotion Impact: Revenue Comparison
 
-## Future Enhancements
+**Chart type:** Stacked/Grouped Bar Chart
 
-* Add profit and profit-margin analysis.
-* Analyze the impact of promotions on revenue and units sold.
-* Add stock-out and inventory performance analysis.
-* Analyze delivery performance and delayed deliveries.
-* Add year-over-year revenue growth.
-* Add month-over-month sales growth.
-* Create category and brand ranking metrics.
-* Develop sales forecasting using historical trends.
-* Add customer-level analysis if customer data becomes available.
-* Integrate additional data sources for automated reporting.
-* Implement scheduled and automated dashboard refreshes.
-* Add advanced predictive analytics for demand and inventory planning.
+Compares promotional and standard-price activity using:
 
+- Revenue
+- Units sold
 
+The chart separates:
+
+- **No - Standard Price**
+- **Yes - Promo Active**
+
+The visualization helps evaluate the overall contribution of promotional
+activity compared with standard-price sales.
+
+## 2. Revenue by Delivery Performance Tier
+
+**Chart type:** Bar Chart
+
+Compares revenue across the five delivery-performance tiers:
+
+1. Express (Same/Next Day)
+2. Fast (2 Days)
+3. Standard (3 Days)
+4. Slow (4 Days)
+5. Very Slow (5 Days)
+
+This helps identify whether revenue performance differs according to
+delivery speed.
+
+## 3. Monthly Revenue Trend by Year
+
+**Chart type:** Time-Series / Line Chart
+
+Overlays monthly revenue across:
+
+- 2022
+- 2023
+- 2024
+
+The comparison makes seasonal patterns and year-to-year revenue
+trajectories easier to identify.
+
+The 2022 series begins partway through the year, while 2023 and 2024
+provide fuller-year comparisons.
+
+## 4. Promotion Lift by Category
+
+**Chart type:** Normal Stacked Bar Chart
+
+Compares:
+
+- **No - Standard Price**
+- **Yes - Promo Active**
+
+across the five categories:
+
+- Yogurt
+- Milk
+- ReadyMeal
+- SnackBar
+- Juice
+
+The chart shows the absolute sales volume contribution of promotional
+and non-promotional transactions for each category.
+
+This is intentionally configured as a **normal stacked bar chart rather**
+**than a 100% stacked chart**, because absolute sales volume is more
+useful here than percentage composition.
+
+## 5. Stock Status Distribution Table
+
+**Chart type:** Pivot / Summary Table
+
+Shows stock health by product category.
+
+### Rows
+
+- Yogurt
+- Milk
+- ReadyMeal
+- SnackBar
+- Juice
+
+### Stock Status Columns
+
+- Healthy stock
+- Out of stock
+- Low stock
+- Critical stock
+- Grand total
+
+The table provides a direct operational view of stock health and
+highlights the number of records associated with each status.
+
+Conditional formatting is used to visually highlight the **Out of**
+**stock** column.
+
+---
+
+# Dataset Information
+
+The dataset contains transaction-level FMCG sales and operational data
+covering **2022--2024**.
+
+It includes information related to:
+
+- Products
+- SKUs
+- Brands
+- Categories
+- Sales channels
+- Regions
+- Pricing
+- Promotions
+- Delivery performance
+- Inventory / stock
+- Units sold
+- Delivered quantity
+- Revenue
+
+## Main Dataset Fields
+
+| Column | Description |
+|---|---|
+| `Transaction ID` | Unique identifier for each transaction |
+| `date` | Date on which the transaction occurred |
+| `sku` | Unique product/SKU identifier |
+| `brand` | Brand associated with the product |
+| `segment` | Product segment |
+| `category` | FMCG product category |
+| `channel` | Sales channel such as Retail, E-commerce, or Discount |
+| `region` | Geographic sales region |
+| `pack_type` | Packaging type |
+| `price_unit` | Selling price per unit |
+| `promotion_flag` | Indicates whether a promotion was applied |
+| `delivery_days` | Number of days required for delivery |
+| `stock_available` | Quantity of stock available |
+| `delivered_qty` | Quantity delivered |
+| `units_sold` | Number of units sold |
+| `Revenue` | Revenue generated from the transaction |
+
+## Product Categories
+
+The dashboard covers:
+
+- Yogurt
+- Milk
+- ReadyMeal
+- SnackBar
+- Juice
+
+---
+
+# Data Preparation
+
+## Step 1 --- Data Extraction
+
+- Connected the FMCG dataset to Google Sheets.
+- Reviewed the transaction-level sales and operational fields.
+- Used Google Sheets as the data source for Looker Studio.
+
+## Step 2 --- Data Cleaning and Preparation
+
+- Verified column names and data structure.
+- Ensured the date field was suitable for time-series analysis.
+- Verified numerical fields such as price, stock, delivered quantity,
+  units sold, and revenue.
+- Checked categorical fields such as category, brand, channel, and
+  region.
+- Prepared the dataset for dashboard reporting.
+
+## Step 3 --- Looker Studio Integration
+
+- Connected the Google Sheets dataset to Looker Studio.
+- Configured dimensions and metrics.
+- Created calculated fields where required.
+- Added interactive filters and controls.
+- Built the two-page dashboard.
+- Added navigation between the two pages.
+
+---
+
+# Calculated / Analytical Fields
+
+The advanced page uses calculated fields for several analytical
+controls, including:
+
+- **Year**
+- **Promotion Label**
+- **Delivery Performance**
+- **Stock Status**
+
+These fields make it possible to create interactive controls based on
+business classifications rather than only the original raw columns.
+
+---
+
+# Business Insights
+
+## Insight 1 --- Category Performance
+
+**Yogurt** is the strongest revenue-generating category in the
+dashboard, contributing significantly more revenue than the other
+categories.
+
+## Insight 2 --- Revenue Trends
+
+Revenue changes over time, with noticeable fluctuations across the
+2022--2024 period. The time-series charts make stronger and weaker
+periods easier to identify.
+
+## Insight 3 --- Channel Contribution
+
+Revenue is distributed across **Retail, E-commerce, and Discount**
+channels. Comparing these channels helps identify their contribution to
+overall sales.
+
+## Insight 4 --- Brand Performance
+
+Brand-level analysis shows differences in revenue contribution, helping
+management identify high-performing brands and evaluate the portfolio.
+
+## Insight 5 --- Regional Performance
+
+The Page 1 region filter allows users to investigate geographic
+differences in sales performance.
+
+## Insight 6 --- Promotion Performance
+
+Page 2 compares promotional and standard-price activity using revenue
+and units sold, making it possible to evaluate the scale of promotional
+sales.
+
+## Insight 7 --- Delivery Performance
+
+The delivery-performance analysis provides a way to compare revenue
+across different delivery-speed tiers.
+
+## Insight 8 --- Stock Health
+
+The stock-status table provides an operational view of healthy,
+out-of-stock, low-stock, and critical-stock records by category.
+
+## Insight 9 --- Combined Sales and Operations Analysis
+
+The dashboard combines sales measures with operational variables such as
+stock status, delivered quantity, delivery days, and promotion status,
+enabling deeper analysis of sales and operational performance together.
+
+---
+
+# Dashboard Navigation
+
+The report uses internal page navigation rather than separate dashboard
+links.
+
+## Page 1 → Page 2
+
+Button:
+
+**View Advanced Analysis →**
+
+Destination:
+
+**Advanced_Sales_Analysis**
+
+## Page 2 → Page 1
+
+Button:
+
+**← Back to Overview**
+
+Destination:
+
+**FMCG_Overview**
+
+This creates a simple two-way navigation experience between the
+executive overview and the advanced analysis page.
+
+---
+
+# Project Challenges
+
+## 1. Transaction-Level Data
+
+The dataset contains a large number of individual transactions. Correct
+aggregation was important for meaningful KPIs and visualizations.
+
+## 2. Data Preparation
+
+Dates, numerical measures, categorical dimensions, and calculated fields
+needed to be configured correctly before dashboard construction.
+
+## 3. KPI Calculation
+
+Accurate aggregations were required for revenue, units sold, transaction
+count, and average unit price.
+
+## 4. Time-Series Analysis
+
+Revenue trends across multiple years required appropriate date
+dimensions and aggregation levels.
+
+## 5. Advanced Analysis
+
+The second page required calculated fields for year, promotion status,
+delivery performance, and stock status.
+
+## 6. Dashboard Design
+
+Multiple KPIs, charts, tables, and controls needed to be arranged while
+maintaining a clean and readable business-oriented layout.
+
+## 7. Interactive Filtering
+
+Filters were configured to allow users to dynamically investigate the
+report rather than creating separate dashboards for every segment.
+
+## 8. Page Navigation
+
+Internal links were added so users can move between the overview and
+advanced-analysis pages.
+
+---
+
+# Project Outcome
+
+The completed FMCG Sales Performance Dashboard provides a two-page
+interactive reporting solution.
+
+Users can:
+
+- Monitor total revenue.
+- Monitor units sold.
+- Track transaction volume.
+- Analyze average unit price.
+- Track revenue trends over time.
+- Compare category revenue.
+- Analyze channel revenue.
+- Compare brand performance.
+- Filter by region.
+- Analyze promotion vs standard-price activity.
+- Compare delivery-performance tiers.
+- Analyze monthly revenue trends by year.
+- Compare promotion lift by category.
+- Monitor stock health by category.
+- Navigate between the overview and advanced-analysis pages.
+
+The dashboard supports data-driven FMCG sales and operational
+decision-making.
+
+---
+
+# Future Enhancements
+
+Potential future improvements include:
+
+- Add profit and profit-margin analysis.
+- Analyze the impact of promotions on revenue and units sold.
+- Add stock-out and inventory performance analysis.
+- Analyze delayed deliveries in more detail.
+- Add year-over-year revenue growth.
+- Add month-over-month sales growth.
+- Create category and brand ranking metrics.
+- Develop sales forecasting using historical trends.
+- Add customer-level analysis if customer data becomes available.
+- Integrate additional data sources for automated reporting.
+- Implement scheduled dashboard refreshes.
+- Add predictive analytics for demand and inventory planning.
+
+---
+
+# Tools and Technologies
+
+- **Google Sheets**
+- **Looker Studio / Data Studio**
+- **Calculated Fields**
+- **KPI Scorecards**
+- **Interactive Filters**
+- **Time-Series Analysis**
+- **Bar Charts**
+- **Donut Charts**
+- **Stacked Bar Charts**
+- **Pivot / Summary Tables**
+- **Conditional Formatting**
+- **Dashboard Navigation**
+
+---
+
+## Final Dashboard Link
+
+**Live Report:**
+
+https://datastudio.google.com/reporting/9a0698d0-f429-4a51-90d5-ed64cb2afd53
